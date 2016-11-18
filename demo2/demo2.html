@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../bower_components/react.js"></script>
+    <script src="../bower_components/react-dom.js"></script>
+    <script src="../bower_components/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+     var names=['隔壁老王','隔壁老张','隔壁老郑'];
+	 ReactDOM.render(
+		<div>
+			{
+				names.map(function(name){
+					return <div>hello,{name}!</div>
+				
+				})
+			
+			}
+		
+		</div>,
+		document.getElementById('example')
+	 
+	 );
+    </script>
+  </body>
+</html>
