@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../bower_components/react.js"></script>
+    <script src="../bower_components/react-dom.js"></script>
+    <script src="../bower_components/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+		var HelloMessage=React.createClass({
+			render:function(){
+				return <h1>Hello,{this.props.name}</h1>;
+			}
+		});
+		ReactDOM.render(
+			<HelloMessage name="JAMS"/>,
+			document.getElementById('example')
+		);
+    </script>
+  </body>
+</html>
