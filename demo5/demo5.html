@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../bower_components/react.js"></script>
+    <script src="../bower_components/react-dom.js"></script>
+    <script src="../bower_components/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+		var NodeList=React.createClass({
+
+			render:function(){
+				return (
+	
+					<ol>
+						{
+
+							React.Children.map(this.props.children,function(child){
+
+								return <li>{child}</li>;
+							})
+						}
+					</ol>
+				);
+
+			}
+		});
+		ReactDOM.render(
+			<NodeList>
+
+				<span>Hello</span>
+				<span>React</span>
+			</NodeList>,
+			document.getElementById('example')
+		)
+    </script>
+  </body>
+</html>
