@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../bower_components/react.js"></script>
+    <script src="../bower_components/react-dom.js"></script>
+    <script src="../bower_components/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+    	var data="react is a library";
+    	var MyTitle=React.createClass({
+
+    		propTypes:{
+    			title:React.PropTypes.string.isRequired,
+    		},
+    		render:function(){
+    		return <h1>{this.props.title}</h1>;
+    	}
+
+    	});
+    	ReactDOM.render(
+			<MyTitle title={data}/>,
+			document.getElementById('example')
+    	);
+
+    </script>
+  </body>
+</html>
