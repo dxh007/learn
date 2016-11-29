@@ -11,24 +11,27 @@
         var Hello=React.createClass({
             getInitialState:function(){
                 return {
-                    opacity:1.0
-                };
+                    opacity:1.0,
+                    fontSize:'16px'               };
             },
             componentDidMount:function(){
                 this.timer=setInterval(function(){
                     var opacity=this.state.opacity;
+                    var fontSize=parseFloat(this.state.fontSize);
                     opacity-=.05;
+                    fontSize+=5;
                     if(opacity<0.1){
                         opacity=1.0;
                     }
                     this.setState({
-                        opacity:opacity
+                        opacity:opacity,
+                        fontSize:fontSize+"px"
                     });
-                }.bind(this),100);
+                }.bind(this),1000);
             },
             render:function(){
                 return (
-                    <div style={{opacity:this.state.opacity}}>
+                    <div style={{opacity:this.state.opacity,fontSize:this.state.fontSize}}>
                         Hello {this.props.name}
                     </div>
                 );

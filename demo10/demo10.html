@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../bower_components/react.js"></script>
+    <script src="../bower_components/react-dom.js"></script>
+    <script src="../bower_components/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+		var Hello= React.createClass({
+			getInitialState:function(){
+				return {
+					opacity:1.0,
+					fontSize:'15px'
+				};
+				
+
+			},
+			render:function(){
+					return <div style={this.state}>Hello,{this.props.name}</div>;
+			},
+			componentWillMount:function(){
+				alert('will');
+			},
+			componentDidMount:function(){
+				alert('did');
+
+				window.setTimeout(function(){
+
+					this.setState({
+						opacity:0.5,
+						fontSize:'40px'
+					});
+				}.bind(this),1000);
+			},
+		});
+		ReactDOM.render(
+			<Hello name='World'/>,
+			document.getElementById('example')
+		);
+    </script>
+  </body>
+</html>
