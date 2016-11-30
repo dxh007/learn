@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../bower_components/react.js"></script>
+    <script src="../bower_components/react-dom.js"></script>
+    <script src="../bower_components/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+        var TestComponentButton=React.createClass({
+            handleClick:function(event){
+                var tipE=ReactDOM.findDOMNode(this.refs.tip);
+                if(tipE==='none'){
+                    
+                    tipE.style.display="inline-block"
+                }else{
+                    tipE.style.display="none"
+                }
+                event.stopPropagation();
+                event.preventDefault();
+            },
+            render:function(){
+                return (
+                     <div>
+                          <button type="button" onClick={this.handleClick}>显示|隐藏</button><span ref='tip'>点击切换</span>
+                     </div>
+                );
+            } 
+        });
+        var TestComponentInput=React.createClass({
+            getInitialState:function(){
+                return {
+                    InputContenr:''
+                };
+            },
+            handleInput:function(event){
+                this.setState({
+                    InputContent:event.target.value
+                });
+                event.stopPropagation();
+                event.preventDefault();
+            },
+            render:function(){
+                return (
+                    <div>
+                        <input type="text" onChange={this.handleInput}/>
+                        <span>{this.state.InputContent}</span>
+                    </div>
+                );
+            }
+        });
+        ReactDOM.render(
+            <div>
+                <TestComponentButton/>
+                <TestComponentInput/>
+            </div>,
+            document.getElementById('example')
+        );
+
+    </script>
+  </body>
+</html>
